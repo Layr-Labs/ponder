@@ -1,6 +1,7 @@
 node_modules
 *debug.log
 
+.turbo
 .vercel
 .DS_Store
 tmp

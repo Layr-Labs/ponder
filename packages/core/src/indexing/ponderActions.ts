@@ -7,6 +7,7 @@ import {
   type Client,
   type ContractFunctionArgs,
   type ContractFunctionName,
+  type GetBlockNumberReturnType,
   type GetBlockReturnType,
   type GetBlockTransactionCountReturnType,
   type GetTransactionCountReturnType,
@@ -45,6 +46,7 @@ const nonBlockDependentActions = [
   "getTransaction",
   "getTransactionReceipt",
   "getTransactionConfirmations",
+  "getBlockNumber",
 ] as const satisfies readonly (keyof ReturnType<typeof publicActions>)[];
 
 type BlockOptions =
@@ -129,6 +131,7 @@ export type PonderActions = {
       includeTransactions?: includeTransactions | undefined;
     } & RequiredBlockOptions,
   ) => Promise<GetBlockReturnType<Chain | undefined, includeTransactions>>;
+  getBlockNumber: () => Promise<GetBlockNumberReturnType>;
   getTransactionCount: (
     args: {
       /** The account address. */
