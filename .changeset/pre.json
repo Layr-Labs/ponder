@@ -1,0 +1,14 @@
+{
+  "mode": "pre",
+  "tag": "debug",
+  "initialVersions": {
+    "@ponder/client": "0.9.4",
+    "@ponder/common": "0.0.0",
+    "ponder": "0.9.4",
+    "create-ponder": "0.9.4",
+    "eslint-config-ponder": "0.9.4",
+    "@ponder/react": "0.9.4",
+    "@ponder/utils": "0.2.3"
+  },
+  "changesets": []
+}

@@ -1,6 +1,6 @@
 {
   "name": "ponder",
-  "version": "0.9.2",
+  "version": "0.9.4-debug.1",
   "description": "An open-source framework for crypto application backends",
   "license": "MIT",
   "type": "module",
@@ -29,6 +29,10 @@
     },
     "./virtual": {
       "types": "./src/types.d.ts"
+    },
+    "./experimental_unsafe_stores": {
+      "types": "./dist/experimental_unsafe_stores.d.ts",
+      "import": "./dist/experimental_unsafe_stores.js"
     }
   },
   "scripts": {

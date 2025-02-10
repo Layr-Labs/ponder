@@ -2,7 +2,12 @@ import { defineConfig } from "tsup";
 
 export default defineConfig({
   name: "ponder",
-  entry: ["src/index.ts", "src/bin/ponder.ts", "src/drizzle/onchain.ts"],
+  entry: [
+    "src/index.ts",
+    "src/experimental_unsafe_stores.ts",
+    "src/bin/ponder.ts",
+    "src/drizzle/onchain.ts",
+  ],
   outDir: "dist",
   format: ["esm"],
   sourcemap: true,
