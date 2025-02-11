@@ -25,6 +25,12 @@
       "require": "./packages/core/dist/index.js",
       "main": "./packages/core/dist/index.js"
     },
+    "./experimental_unsafe_stores": {
+      "types": "./packages/core/dist/experimental_unsafe_stores.d.ts",
+      "import": "./packages/core/dist/experimental_unsafe_stores.js",
+      "require": "./packages/core/dist/experimental_unsafe_stores.js",
+      "main": "./packages/core/dist/experimental_unsafe_stores.js"
+    },
     "./virtual": {
       "types": "./packages/core/src/types.d.ts"
     }

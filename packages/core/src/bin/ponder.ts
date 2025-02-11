@@ -105,6 +105,14 @@ const serveCommand = new Command("serve")
     "-H, --hostname <HOSTNAME>",
     'Hostname for the web server (default: "0.0.0.0" or "::")',
   )
+  .option(
+    "-f, --apiFile <PATH>",
+    'A single filepath for defined endpoint definitions (default: "src/api/index.ts")',
+  )
+  .option(
+    "-d, --apiDir <PATH>",
+    'Filepath of the directory that contains endpoint definitions (default: "src/api")',
+  )
   .showHelpAfterError()
   .action(async (_, command) => {
     const cliOptions = {

@@ -48,6 +48,10 @@ import type { Queue } from "@ponder/common";
 import { type Address, type Hash, hexToNumber, zeroHash } from "viem";
 import { isFilterInBloom, zeroLogsBloom } from "./bloom.js";
 
+declare global {
+  var IS_REALTIME_SYNC: boolean;
+}
+
 export type RealtimeSync = {
   start(args: {
     syncProgress: Pick<SyncProgress, "finalized">;
@@ -892,6 +896,10 @@ export const createRealtimeSync = (
 
   return {
     start(startArgs) {
+      // Set global variable to allow messaging of parallel processes
+      // that realtime sync is active
+      globalThis.IS_REALTIME_SYNC = true;
+
       finalizedBlock = startArgs.syncProgress.finalized;
       finalizedChildAddresses = startArgs.initialChildAddresses;
       /**
