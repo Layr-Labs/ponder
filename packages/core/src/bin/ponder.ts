@@ -10,6 +10,7 @@ import { dev } from "./commands/dev.js";
 import { list } from "./commands/list.js";
 import { serve } from "./commands/serve.js";
 import { start } from "./commands/start.js";
+import { startUnsafe } from "./commands/startUnsafe.js";
 
 dotenv.config({ path: ".env.local" });
 
@@ -97,6 +98,23 @@ const startCommand = new Command("start")
     await start({ cliOptions });
   });
 
+const startUnsafeCommand = new Command("start:unsafe")
+  .description("Start the production server")
+  .option("--schema <SCHEMA>", "Database schema", String)
+  .option("-p, --port <PORT>", "Port for the web server", Number, 42069)
+  .option(
+    "-H, --hostname <HOSTNAME>",
+    'Hostname for the web server (default: "0.0.0.0" or "::")',
+  )
+  .showHelpAfterError()
+  .action(async (_, command) => {
+    const cliOptions = {
+      ...command.optsWithGlobals(),
+      command: command.name(),
+    } as GlobalOptions & ReturnType<typeof command.opts>;
+    await startUnsafe({ cliOptions });
+  });
+
 const serveCommand = new Command("serve")
   .description("Start the production HTTP server without the indexer")
   .option("--schema <SCHEMA>", "Database schema", String)
@@ -170,6 +188,7 @@ dbCommand.addCommand(listCommand);
 
 ponder.addCommand(devCommand);
 ponder.addCommand(startCommand);
+ponder.addCommand(startUnsafeCommand);
 ponder.addCommand(serveCommand);
 ponder.addCommand(dbCommand);
 ponder.addCommand(codegenCommand);
@@ -179,6 +198,7 @@ export type CliOptions = Prettify<
     Partial<
       ReturnType<typeof devCommand.opts> &
         ReturnType<typeof startCommand.opts> &
+        ReturnType<typeof startUnsafeCommand.opts> &
         ReturnType<typeof serveCommand.opts> &
         ReturnType<typeof dbCommand.opts> &
         ReturnType<typeof codegenCommand.opts>
