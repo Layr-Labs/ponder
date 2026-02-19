@@ -47,8 +47,8 @@
     "@types/node": "^20.11.24",
     "abitype": "^1.0.1",
     "dotenv": "^16.3.1",
-    "tsup": "^8.0.1",
-    "vitest": "^1.0.2"
+    "tsup": "^8.3.5",
+    "vitest": "^1.6.1"
   },
   "imports": {
     "@ponder/common": "../common/index.ts"
