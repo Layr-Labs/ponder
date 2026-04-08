@@ -13,7 +13,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "lucide-react": "^0.295.0",
-    "next": "^14.0.2",
+    "next": "^15.5.14",
     "nextra": "3.0.0-alpha.10",
     "nextra-theme-docs": "3.0.0-alpha.10",
     "posthog-node": "^4.0.0",
